@@ -1,0 +1,13 @@
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\bin\Debug\QLBN.exe.config
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\bin\Debug\QLBN.exe
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\bin\Debug\QLBN.pdb
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.csproj.AssemblyReference.cache
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.csproj.SuggestedBindingRedirects.cache
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.frmMain.resources
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.Properties.Resources.resources
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.csproj.GenerateResource.cache
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.csproj.CoreCompileInputs.cache
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.exe
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.pdb
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.frmDMKhuVuc.resources
+D:\Code\He_quan_tri_co_so_du_lieu\QLBN\QLBN\obj\Debug\QLBN.frmDMNhanVien.resources
