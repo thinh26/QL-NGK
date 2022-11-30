@@ -39,3 +39,5 @@ D:\GitHub\QL-NGK\obj\Debug\QLBN.csproj.GenerateResource.cache
 D:\GitHub\QL-NGK\obj\Debug\QLBN.csproj.CoreCompileInputs.cache
 D:\GitHub\QL-NGK\obj\Debug\QLBN.exe
 D:\GitHub\QL-NGK\obj\Debug\QLBN.pdb
+C:\AAAAA\bin\Debug\QLBN_DB.mdf
+C:\AAAAA\bin\Debug\QLBN_DB_log.ldf
