@@ -84,6 +84,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLBN_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBN_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDMKhuVuc.resx">
       <DependentUpon>frmDMKhuVuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +116,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLBN_DBDataSet.xsc">
+      <DependentUpon>QLBN_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBN_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBN_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBN_DBDataSet.xss">
+      <DependentUpon>QLBN_DBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
