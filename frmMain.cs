@@ -13,6 +13,11 @@ namespace QLBN
 {
     public partial class frmMain : Form
     {
+        DataTable tblnv;
+        DataTable tblkh;
+        DataTable tblncc;
+        DataTable tblngk;
+        DataTable tbllngk;
         public frmMain()
         {
             InitializeComponent();
@@ -20,27 +25,35 @@ namespace QLBN
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLBN_DBDataSet.LoaiNGK' table. You can move, or remove it, as needed.
-            this.loaiNGKTableAdapter.Fill(this.qLBN_DBDataSet.LoaiNGK);
-            // TODO: This line of code loads data into the 'qLBN_DBDataSet.NuocGiaiKhat' table. You can move, or remove it, as needed.
-            this.nuocGiaiKhatTableAdapter.Fill(this.qLBN_DBDataSet.NuocGiaiKhat);
-            // TODO: This line of code loads data into the 'qLBN_DBDataSet.NhaCungCap' table. You can move, or remove it, as needed.
-            this.nhaCungCapTableAdapter.Fill(this.qLBN_DBDataSet.NhaCungCap);
-            // TODO: This line of code loads data into the 'qLBN_DBDataSet.KhachHang' table. You can move, or remove it, as needed.
-            this.khachHangTableAdapter.Fill(this.qLBN_DBDataSet.KhachHang);
-            // TODO: This line of code loads data into the 'qLBN_DBDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.qLBN_DBDataSet.NhanVien);
+            LoadDataGridView(); //Hiển thị bảng tblChatLieu
+        }
+
+        private void LoadDataGridView()
+        {
+            string sql;
+            sql = "SELECT * FROM NhanVien";
+            tblnv = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvNV.DataSource = tblnv; //Nguồn dữ liệu
+            sql = "SELECT * FROM KhachHang";
+            tblkh = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvNV.DataSource = tblkh; //Nguồn dữ liệu  
+            sql = "SELECT * FROM NhaCungCap";
+            tblncc = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvNV.DataSource = tblncc; //Nguồn dữ liệu  
+            sql = "SELECT * FROM NuocGiaiKhat";
+            tblngk = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvNV.DataSource = tblngk; //Nguồn dữ liệu  
+            sql = "SELECT * FROM LoaiNGK";
+            tbllngk = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvNV.DataSource = tbllngk; //Nguồn dữ liệu  
+            //dgvCuaHang.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
+            //dgvCuaHang.EditMode = DataGridViewEditMode.EditProgrammatically; //Không cho sửa dữ liệu trực tiếp
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             Functions.Disconnect(); //Đóng kết nối
             this.Close();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
