@@ -25,6 +25,7 @@ namespace QLBN
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            Functions.Connect(); //Mở kết nối
             LoadDataGridView(); //Hiển thị bảng tblChatLieu
         }
 
