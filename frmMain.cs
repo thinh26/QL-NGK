@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLBN.Class;
 
 namespace QLBN
 {
@@ -19,26 +20,13 @@ namespace QLBN
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            Class.Functions.Connect();
+            Functions.Connect();
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)
         {
-            Class.Functions.Disconnect(); //Đóng kết nối
+            Functions.Disconnect(); //Đóng kết nối
             this.Close();
-        }
-
-        
-        private void mnuKhuVuc_Click(object sender, EventArgs e)
-        {
-            Form frmKhuVuc = new frmDMKhuVuc();
-            frmKhuVuc.Show();
-        }
-
-        private void mnuNhanVien_Click(object sender, EventArgs e)
-        {
-            Form frmNhanVien = new frmDMNhanVien();
-            frmNhanVien.Show();
         }
     }
 }

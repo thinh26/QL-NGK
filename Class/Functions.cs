@@ -34,6 +34,7 @@ namespace QLBN.Class
             }
         }
 
+
         //Lấy dữ liệu vào bảng
         public static DataTable GetDataToTable(string sql)
         {
