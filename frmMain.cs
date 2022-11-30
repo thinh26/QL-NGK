@@ -48,6 +48,7 @@ namespace QLBN
             dgvNV.DataSource = tbllngk; //Nguồn dữ liệu  
             //dgvCuaHang.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
             //dgvCuaHang.EditMode = DataGridViewEditMode.EditProgrammatically; //Không cho sửa dữ liệu trực tiếp
+            //AAAAAAAAAAAAAAAAAAAAAAA
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)
