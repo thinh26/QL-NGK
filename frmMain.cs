@@ -28,7 +28,6 @@ namespace QLBN
             this.khachHangTableAdapter.Fill(this.qLBN_DBDataSet.KhachHang);
             // TODO: This line of code loads data into the 'qLBN_DBDataSet.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.qLBN_DBDataSet.NhanVien);
-            Functions.Connect();
         }
 
         private void mnuThoat_Click(object sender, EventArgs e)
