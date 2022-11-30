@@ -20,6 +20,8 @@ namespace QLBN
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLBN_DBDataSet.LoaiNGK' table. You can move, or remove it, as needed.
+            this.loaiNGKTableAdapter.Fill(this.qLBN_DBDataSet.LoaiNGK);
             // TODO: This line of code loads data into the 'qLBN_DBDataSet.NuocGiaiKhat' table. You can move, or remove it, as needed.
             this.nuocGiaiKhatTableAdapter.Fill(this.qLBN_DBDataSet.NuocGiaiKhat);
             // TODO: This line of code loads data into the 'qLBN_DBDataSet.NhaCungCap' table. You can move, or remove it, as needed.
