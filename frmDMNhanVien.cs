@@ -24,6 +24,7 @@ namespace QLBN
             txtMaNhanVien.Enabled = false;
             // btnLuu.Enabled = false;
             // btnBoQua.Enabled = false;
+            // ...
             LoadDataGridView();
         }
         public void LoadDataGridView()
