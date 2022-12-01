@@ -34,7 +34,6 @@ namespace QLBN.Class
             }
         }
 
-
         //Lấy dữ liệu vào bảng
         public static DataTable GetDataToTable(string sql)
         {
@@ -47,6 +46,52 @@ namespace QLBN.Class
             //Khai báo đối tượng table thuộc lớp DataTable
             dap.Fill(table);
             return table;
+        }
+        //Kiểm tra dữ liệu
+        public static bool CheckKey(string sql)
+        {
+            SqlDataAdapter dap = new SqlDataAdapter(sql, Con);
+            DataTable table = new DataTable();
+            dap.Fill(table);
+            if (table.Rows.Count > 0)
+                return true;
+            else return false;
+        }
+        //Chạy lên cập nhật + tạo dữ liệu
+        public static void RunSQL(string sql)
+        {
+            SqlCommand cmd; //Đối tượng thuộc lớp SqlCommand
+            cmd = new SqlCommand();
+            cmd.Connection = Con; //Gán kết nối
+            cmd.CommandText = sql; //Gán lệnh SQL
+            try
+            {
+                cmd.ExecuteNonQuery(); //Thực hiện câu lệnh SQL
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            cmd.Dispose();//Giải phóng bộ nhớ
+            cmd = null;
+        }
+        //Xóa dữ liệu
+        public static void RunSqlDel(string sql)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = Functions.Con;
+            cmd.CommandText = sql;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dữ liệu đang được dùng, không thể xoá...", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //MessageBox.Show(ex.ToString());
+            }
+            cmd.Dispose();
+            cmd = null;
         }
     }
 }

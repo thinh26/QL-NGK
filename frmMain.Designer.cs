@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
@@ -181,6 +181,7 @@
             this.txtMaLoaiNGKLNGK = new System.Windows.Forms.TextBox();
             this.txtTenLoaiNGKLNGK = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dgvHDN = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtSoLuongHDN = new System.Windows.Forms.TextBox();
             this.txtMaNGKHDN = new System.Windows.Forms.TextBox();
@@ -200,7 +201,20 @@
             this.labelHoaDonNhapHDN = new System.Windows.Forms.Label();
             this.labeThongTinHDN = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dgvHD = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtMaNGKHD = new System.Windows.Forms.TextBox();
+            this.txtMaNVHD = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtNgayXuatHDHD = new System.Windows.Forms.DateTimePicker();
+            this.labelMaNVHD = new System.Windows.Forms.Label();
+            this.labelMaKHHD = new System.Windows.Forms.Label();
+            this.labelMaHDHD = new System.Windows.Forms.Label();
+            this.labelMaNGKHD = new System.Windows.Forms.Label();
+            this.labelSoLuongHD = new System.Windows.Forms.Label();
+            this.txtMaKHHD = new System.Windows.Forms.TextBox();
+            this.txtMaHDHD = new System.Windows.Forms.TextBox();
+            this.txtSoLuongHD = new System.Windows.Forms.TextBox();
             this.btnXoaHD = new System.Windows.Forms.Button();
             this.btnThemHD = new System.Windows.Forms.Button();
             this.btnHuyHD = new System.Windows.Forms.Button();
@@ -213,20 +227,6 @@
             this.nhaCungCapTableAdapter = new QLBN.QLBN_DBDataSetTableAdapters.NhaCungCapTableAdapter();
             this.nuocGiaiKhatTableAdapter = new QLBN.QLBN_DBDataSetTableAdapters.NuocGiaiKhatTableAdapter();
             this.loaiNGKTableAdapter = new QLBN.QLBN_DBDataSetTableAdapters.LoaiNGKTableAdapter();
-            this.labelMaNVHD = new System.Windows.Forms.Label();
-            this.labelMaKHHD = new System.Windows.Forms.Label();
-            this.labelMaHDHD = new System.Windows.Forms.Label();
-            this.labelMaNGKHD = new System.Windows.Forms.Label();
-            this.labelSoLuongHD = new System.Windows.Forms.Label();
-            this.txtMaKHHD = new System.Windows.Forms.TextBox();
-            this.txtMaHDHD = new System.Windows.Forms.TextBox();
-            this.txtSoLuongHD = new System.Windows.Forms.TextBox();
-            this.dtNgayXuatHDHD = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtMaNVHD = new System.Windows.Forms.TextBox();
-            this.txtMaNGKHD = new System.Windows.Forms.TextBox();
-            this.dgvHDN = new System.Windows.Forms.DataGridView();
-            this.dgvHD = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -251,11 +251,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.loaiNGKBindingSource)).BeginInit();
             this.panel5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHDN)).BeginInit();
             this.panel6.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHDN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -270,7 +270,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1232, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1232, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -279,7 +279,7 @@
             this.chươngTrìnhToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuThoat});
             this.chươngTrìnhToolStripMenuItem.Name = "chươngTrìnhToolStripMenuItem";
-            this.chươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(126, 28);
+            this.chươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(126, 27);
             this.chươngTrìnhToolStripMenuItem.Text = "Chương trình";
             // 
             // mnuThoat
@@ -292,19 +292,19 @@
             // hoáĐơnToolStripMenuItem
             // 
             this.hoáĐơnToolStripMenuItem.Name = "hoáĐơnToolStripMenuItem";
-            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(90, 28);
+            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(90, 27);
             this.hoáĐơnToolStripMenuItem.Text = "Hoá đơn";
             // 
             // tìmKiếmToolStripMenuItem
             // 
             this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
-            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(93, 28);
+            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
             this.tìmKiếmToolStripMenuItem.Text = "Tìm kiếm";
             // 
             // báoCáoToolStripMenuItem
             // 
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(85, 28);
+            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(85, 27);
             this.báoCáoToolStripMenuItem.Text = "Báo cáo";
             // 
             // tabControl1
@@ -319,12 +319,12 @@
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 30);
+            this.tabControl1.Location = new System.Drawing.Point(0, 29);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1232, 573);
+            this.tabControl1.Size = new System.Drawing.Size(1232, 574);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -343,10 +343,11 @@
             // 
             // dgvNV
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvNV.AutoGenerateColumns = false;
             this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNV.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNVNV,
@@ -476,6 +477,7 @@
             this.btnXoaNV.TabIndex = 21;
             this.btnXoaNV.Text = "Xóa";
             this.btnXoaNV.UseVisualStyleBackColor = true;
+            this.btnXoaNV.Click += new System.EventHandler(this.btnXoaNV_Click);
             // 
             // btnThemNV
             // 
@@ -486,6 +488,7 @@
             this.btnThemNV.TabIndex = 20;
             this.btnThemNV.Text = "Thêm";
             this.btnThemNV.UseVisualStyleBackColor = true;
+            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
             // btnHuyNV
             // 
@@ -496,6 +499,7 @@
             this.btnHuyNV.TabIndex = 23;
             this.btnHuyNV.Text = "Hủy";
             this.btnHuyNV.UseVisualStyleBackColor = true;
+            this.btnHuyNV.Click += new System.EventHandler(this.btnHuyNV_Click);
             // 
             // btnLuuNV
             // 
@@ -690,6 +694,7 @@
             // 
             this.dgvKH.AutoGenerateColumns = false;
             this.dgvKH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKH.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKHKH,
@@ -784,6 +789,7 @@
             this.btnXoaKH.TabIndex = 21;
             this.btnXoaKH.Text = "Xóa";
             this.btnXoaKH.UseVisualStyleBackColor = true;
+            this.btnXoaKH.Click += new System.EventHandler(this.btnXoaKH_Click);
             // 
             // btnThemKH
             // 
@@ -794,6 +800,7 @@
             this.btnThemKH.TabIndex = 20;
             this.btnThemKH.Text = "Thêm";
             this.btnThemKH.UseVisualStyleBackColor = true;
+            this.btnThemKH.Click += new System.EventHandler(this.btnThemKH_Click);
             // 
             // btnHuyKH
             // 
@@ -804,6 +811,7 @@
             this.btnHuyKH.TabIndex = 23;
             this.btnHuyKH.Text = "Hủy";
             this.btnHuyKH.UseVisualStyleBackColor = true;
+            this.btnHuyKH.Click += new System.EventHandler(this.btnHuyKH_Click);
             // 
             // btnLuuKH
             // 
@@ -947,6 +955,7 @@
             // 
             this.dgvNCC.AutoGenerateColumns = false;
             this.dgvNCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNCC.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNCC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNCCNCC,
@@ -1049,6 +1058,7 @@
             this.btnXoaNCC.TabIndex = 21;
             this.btnXoaNCC.Text = "Xóa";
             this.btnXoaNCC.UseVisualStyleBackColor = true;
+            this.btnXoaNCC.Click += new System.EventHandler(this.btnXoaNCC_Click);
             // 
             // btnThemNCC
             // 
@@ -1059,6 +1069,7 @@
             this.btnThemNCC.TabIndex = 20;
             this.btnThemNCC.Text = "Thêm";
             this.btnThemNCC.UseVisualStyleBackColor = true;
+            this.btnThemNCC.Click += new System.EventHandler(this.btnThemNCC_Click);
             // 
             // btnHuyNCC
             // 
@@ -1069,6 +1080,7 @@
             this.btnHuyNCC.TabIndex = 23;
             this.btnHuyNCC.Text = "Hủy";
             this.btnHuyNCC.UseVisualStyleBackColor = true;
+            this.btnHuyNCC.Click += new System.EventHandler(this.btnHuyNCC_Click);
             // 
             // btnLuuNCC
             // 
@@ -1204,6 +1216,7 @@
             // 
             this.dgvNGK.AutoGenerateColumns = false;
             this.dgvNGK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNGK.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvNGK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNGK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNGKNGK,
@@ -1354,6 +1367,7 @@
             this.btnXoaNGK.TabIndex = 21;
             this.btnXoaNGK.Text = "Xóa";
             this.btnXoaNGK.UseVisualStyleBackColor = true;
+            this.btnXoaNGK.Click += new System.EventHandler(this.btnXoaNGK_Click);
             // 
             // btnThemNGK
             // 
@@ -1364,6 +1378,7 @@
             this.btnThemNGK.TabIndex = 20;
             this.btnThemNGK.Text = "Thêm";
             this.btnThemNGK.UseVisualStyleBackColor = true;
+            this.btnThemNGK.Click += new System.EventHandler(this.btnThemNGK_Click);
             // 
             // btnHuyNGK
             // 
@@ -1374,6 +1389,7 @@
             this.btnHuyNGK.TabIndex = 23;
             this.btnHuyNGK.Text = "Hủy";
             this.btnHuyNGK.UseVisualStyleBackColor = true;
+            this.btnHuyNGK.Click += new System.EventHandler(this.btnHuyNGK_Click);
             // 
             // btnLuuNGK
             // 
@@ -1559,7 +1575,7 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage5.Size = new System.Drawing.Size(1224, 537);
+            this.tabPage5.Size = new System.Drawing.Size(1224, 538);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Loại Mặt Hàng";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1568,6 +1584,7 @@
             // 
             this.dgvLNGK.AutoGenerateColumns = false;
             this.dgvLNGK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLNGK.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvLNGK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLNGK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLoaiNGKLNGK,
@@ -1578,7 +1595,7 @@
             this.dgvLNGK.Name = "dgvLNGK";
             this.dgvLNGK.RowHeadersWidth = 51;
             this.dgvLNGK.RowTemplate.Height = 24;
-            this.dgvLNGK.Size = new System.Drawing.Size(1218, 334);
+            this.dgvLNGK.Size = new System.Drawing.Size(1218, 335);
             this.dgvLNGK.TabIndex = 2;
             this.dgvLNGK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLNGK_CellClick);
             // 
@@ -1631,6 +1648,7 @@
             this.btnXoaLNGK.TabIndex = 21;
             this.btnXoaLNGK.Text = "Xóa";
             this.btnXoaLNGK.UseVisualStyleBackColor = true;
+            this.btnXoaLNGK.Click += new System.EventHandler(this.btnXoaLNGK_Click);
             // 
             // btnThemLNGK
             // 
@@ -1641,6 +1659,7 @@
             this.btnThemLNGK.TabIndex = 20;
             this.btnThemLNGK.Text = "Thêm";
             this.btnThemLNGK.UseVisualStyleBackColor = true;
+            this.btnThemLNGK.Click += new System.EventHandler(this.btnThemLNGK_Click);
             // 
             // btnHuyLNGK
             // 
@@ -1651,6 +1670,7 @@
             this.btnHuyLNGK.TabIndex = 23;
             this.btnHuyLNGK.Text = "Hủy";
             this.btnHuyLNGK.UseVisualStyleBackColor = true;
+            this.btnHuyLNGK.Click += new System.EventHandler(this.btnHuyLNGK_Click);
             // 
             // btnLuuLNGK
             // 
@@ -1733,10 +1753,24 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 32);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1224, 537);
+            this.tabPage6.Size = new System.Drawing.Size(1224, 538);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Hóa Đơn Nhập";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // dgvHDN
+            // 
+            this.dgvHDN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHDN.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvHDN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHDN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHDN.Location = new System.Drawing.Point(3, 202);
+            this.dgvHDN.Name = "dgvHDN";
+            this.dgvHDN.RowHeadersWidth = 51;
+            this.dgvHDN.RowTemplate.Height = 24;
+            this.dgvHDN.Size = new System.Drawing.Size(1218, 333);
+            this.dgvHDN.TabIndex = 4;
+            this.dgvHDN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDN_CellClick);
             // 
             // panel6
             // 
@@ -1859,6 +1893,7 @@
             this.btnXoaHDN.TabIndex = 21;
             this.btnXoaHDN.Text = "Xóa";
             this.btnXoaHDN.UseVisualStyleBackColor = true;
+            this.btnXoaHDN.Click += new System.EventHandler(this.btnXoaHDN_Click);
             // 
             // btnThemHDN
             // 
@@ -1869,6 +1904,7 @@
             this.btnThemHDN.TabIndex = 20;
             this.btnThemHDN.Text = "Thêm";
             this.btnThemHDN.UseVisualStyleBackColor = true;
+            this.btnThemHDN.Click += new System.EventHandler(this.btnThemHDN_Click);
             // 
             // btnHuyHDN
             // 
@@ -1879,6 +1915,7 @@
             this.btnHuyHDN.TabIndex = 23;
             this.btnHuyHDN.Text = "Hủy";
             this.btnHuyHDN.UseVisualStyleBackColor = true;
+            this.btnHuyHDN.Click += new System.EventHandler(this.btnHuyHDN_Click);
             // 
             // btnLuuHDN
             // 
@@ -1927,10 +1964,24 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 32);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1224, 537);
+            this.tabPage7.Size = new System.Drawing.Size(1224, 538);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Hóa Đơn Xuất";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // dgvHD
+            // 
+            this.dgvHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHD.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvHD.Location = new System.Drawing.Point(3, 202);
+            this.dgvHD.Name = "dgvHD";
+            this.dgvHD.RowHeadersWidth = 51;
+            this.dgvHD.RowTemplate.Height = 24;
+            this.dgvHD.Size = new System.Drawing.Size(1218, 333);
+            this.dgvHD.TabIndex = 5;
+            this.dgvHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHD_CellClick);
             // 
             // panel7
             // 
@@ -1961,95 +2012,37 @@
             this.panel7.Size = new System.Drawing.Size(1218, 199);
             this.panel7.TabIndex = 4;
             // 
-            // btnXoaHD
+            // txtMaNGKHD
             // 
-            this.btnXoaHD.Location = new System.Drawing.Point(125, 149);
-            this.btnXoaHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXoaHD.Name = "btnXoaHD";
-            this.btnXoaHD.Size = new System.Drawing.Size(80, 30);
-            this.btnXoaHD.TabIndex = 21;
-            this.btnXoaHD.Text = "Xóa";
-            this.btnXoaHD.UseVisualStyleBackColor = true;
+            this.txtMaNGKHD.Location = new System.Drawing.Point(777, 20);
+            this.txtMaNGKHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMaNGKHD.Name = "txtMaNGKHD";
+            this.txtMaNGKHD.Size = new System.Drawing.Size(151, 27);
+            this.txtMaNGKHD.TabIndex = 37;
             // 
-            // btnThemHD
+            // txtMaNVHD
             // 
-            this.btnThemHD.Location = new System.Drawing.Point(125, 105);
-            this.btnThemHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThemHD.Name = "btnThemHD";
-            this.btnThemHD.Size = new System.Drawing.Size(80, 30);
-            this.btnThemHD.TabIndex = 20;
-            this.btnThemHD.Text = "Thêm";
-            this.btnThemHD.UseVisualStyleBackColor = true;
+            this.txtMaNVHD.Location = new System.Drawing.Point(778, 87);
+            this.txtMaNVHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMaNVHD.Name = "txtMaNVHD";
+            this.txtMaNVHD.Size = new System.Drawing.Size(151, 27);
+            this.txtMaNVHD.TabIndex = 36;
             // 
-            // btnHuyHD
+            // label11
             // 
-            this.btnHuyHD.Location = new System.Drawing.Point(227, 128);
-            this.btnHuyHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHuyHD.Name = "btnHuyHD";
-            this.btnHuyHD.Size = new System.Drawing.Size(80, 30);
-            this.btnHuyHD.TabIndex = 23;
-            this.btnHuyHD.Text = "Hủy";
-            this.btnHuyHD.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(410, 154);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(142, 20);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Ngày Xuất Hóa Đơn";
             // 
-            // btnLuuHD
+            // dtNgayXuatHDHD
             // 
-            this.btnLuuHD.Location = new System.Drawing.Point(21, 149);
-            this.btnLuuHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLuuHD.Name = "btnLuuHD";
-            this.btnLuuHD.Size = new System.Drawing.Size(80, 30);
-            this.btnLuuHD.TabIndex = 22;
-            this.btnLuuHD.Text = "Lưu";
-            this.btnLuuHD.UseVisualStyleBackColor = true;
-            // 
-            // btnCapNhatHD
-            // 
-            this.btnCapNhatHD.Location = new System.Drawing.Point(21, 105);
-            this.btnCapNhatHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCapNhatHD.Name = "btnCapNhatHD";
-            this.btnCapNhatHD.Size = new System.Drawing.Size(80, 30);
-            this.btnCapNhatHD.TabIndex = 19;
-            this.btnCapNhatHD.Text = "Cập Nhật";
-            this.btnCapNhatHD.UseVisualStyleBackColor = true;
-            // 
-            // labelHoaDonXuatHD
-            // 
-            this.labelHoaDonXuatHD.AutoSize = true;
-            this.labelHoaDonXuatHD.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHoaDonXuatHD.Location = new System.Drawing.Point(37, 46);
-            this.labelHoaDonXuatHD.Name = "labelHoaDonXuatHD";
-            this.labelHoaDonXuatHD.Size = new System.Drawing.Size(203, 38);
-            this.labelHoaDonXuatHD.TabIndex = 10;
-            this.labelHoaDonXuatHD.Text = "Hóa Đơn Xuất";
-            // 
-            // labelThongTinHD
-            // 
-            this.labelThongTinHD.AutoSize = true;
-            this.labelThongTinHD.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelThongTinHD.Location = new System.Drawing.Point(16, 14);
-            this.labelThongTinHD.Name = "labelThongTinHD";
-            this.labelThongTinHD.Size = new System.Drawing.Size(116, 31);
-            this.labelThongTinHD.TabIndex = 9;
-            this.labelThongTinHD.Text = "Thông Tin";
-            // 
-            // nhanVienTableAdapter
-            // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // khachHangTableAdapter
-            // 
-            this.khachHangTableAdapter.ClearBeforeFill = true;
-            // 
-            // nhaCungCapTableAdapter
-            // 
-            this.nhaCungCapTableAdapter.ClearBeforeFill = true;
-            // 
-            // nuocGiaiKhatTableAdapter
-            // 
-            this.nuocGiaiKhatTableAdapter.ClearBeforeFill = true;
-            // 
-            // loaiNGKTableAdapter
-            // 
-            this.loaiNGKTableAdapter.ClearBeforeFill = true;
+            this.dtNgayXuatHDHD.Location = new System.Drawing.Point(558, 149);
+            this.dtNgayXuatHDHD.Name = "dtNgayXuatHDHD";
+            this.dtNgayXuatHDHD.Size = new System.Drawing.Size(351, 27);
+            this.dtNgayXuatHDHD.TabIndex = 34;
             // 
             // labelMaNVHD
             // 
@@ -2120,63 +2113,98 @@
             this.txtSoLuongHD.Size = new System.Drawing.Size(151, 27);
             this.txtSoLuongHD.TabIndex = 24;
             // 
-            // dtNgayXuatHDHD
+            // btnXoaHD
             // 
-            this.dtNgayXuatHDHD.Location = new System.Drawing.Point(558, 149);
-            this.dtNgayXuatHDHD.Name = "dtNgayXuatHDHD";
-            this.dtNgayXuatHDHD.Size = new System.Drawing.Size(351, 27);
-            this.dtNgayXuatHDHD.TabIndex = 34;
+            this.btnXoaHD.Location = new System.Drawing.Point(125, 149);
+            this.btnXoaHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaHD.Name = "btnXoaHD";
+            this.btnXoaHD.Size = new System.Drawing.Size(80, 30);
+            this.btnXoaHD.TabIndex = 21;
+            this.btnXoaHD.Text = "Xóa";
+            this.btnXoaHD.UseVisualStyleBackColor = true;
+            this.btnXoaHD.Click += new System.EventHandler(this.btnXoaHD_Click);
             // 
-            // label11
+            // btnThemHD
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(410, 154);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(142, 20);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Ngày Xuất Hóa Đơn";
+            this.btnThemHD.Location = new System.Drawing.Point(125, 105);
+            this.btnThemHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemHD.Name = "btnThemHD";
+            this.btnThemHD.Size = new System.Drawing.Size(80, 30);
+            this.btnThemHD.TabIndex = 20;
+            this.btnThemHD.Text = "Thêm";
+            this.btnThemHD.UseVisualStyleBackColor = true;
+            this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
-            // txtMaNVHD
+            // btnHuyHD
             // 
-            this.txtMaNVHD.Location = new System.Drawing.Point(778, 87);
-            this.txtMaNVHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaNVHD.Name = "txtMaNVHD";
-            this.txtMaNVHD.Size = new System.Drawing.Size(151, 27);
-            this.txtMaNVHD.TabIndex = 36;
+            this.btnHuyHD.Location = new System.Drawing.Point(227, 128);
+            this.btnHuyHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHuyHD.Name = "btnHuyHD";
+            this.btnHuyHD.Size = new System.Drawing.Size(80, 30);
+            this.btnHuyHD.TabIndex = 23;
+            this.btnHuyHD.Text = "Hủy";
+            this.btnHuyHD.UseVisualStyleBackColor = true;
+            this.btnHuyHD.Click += new System.EventHandler(this.btnHuyHD_Click);
             // 
-            // txtMaNGKHD
+            // btnLuuHD
             // 
-            this.txtMaNGKHD.Location = new System.Drawing.Point(777, 20);
-            this.txtMaNGKHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaNGKHD.Name = "txtMaNGKHD";
-            this.txtMaNGKHD.Size = new System.Drawing.Size(151, 27);
-            this.txtMaNGKHD.TabIndex = 37;
+            this.btnLuuHD.Location = new System.Drawing.Point(21, 149);
+            this.btnLuuHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLuuHD.Name = "btnLuuHD";
+            this.btnLuuHD.Size = new System.Drawing.Size(80, 30);
+            this.btnLuuHD.TabIndex = 22;
+            this.btnLuuHD.Text = "Lưu";
+            this.btnLuuHD.UseVisualStyleBackColor = true;
             // 
-            // dgvHDN
+            // btnCapNhatHD
             // 
-            this.dgvHDN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHDN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHDN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHDN.Location = new System.Drawing.Point(3, 202);
-            this.dgvHDN.Name = "dgvHDN";
-            this.dgvHDN.RowHeadersWidth = 51;
-            this.dgvHDN.RowTemplate.Height = 24;
-            this.dgvHDN.Size = new System.Drawing.Size(1218, 332);
-            this.dgvHDN.TabIndex = 4;
-            this.dgvHDN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDN_CellClick);
+            this.btnCapNhatHD.Location = new System.Drawing.Point(21, 105);
+            this.btnCapNhatHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCapNhatHD.Name = "btnCapNhatHD";
+            this.btnCapNhatHD.Size = new System.Drawing.Size(80, 30);
+            this.btnCapNhatHD.TabIndex = 19;
+            this.btnCapNhatHD.Text = "Cập Nhật";
+            this.btnCapNhatHD.UseVisualStyleBackColor = true;
             // 
-            // dgvHD
+            // labelHoaDonXuatHD
             // 
-            this.dgvHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvHD.Location = new System.Drawing.Point(3, 202);
-            this.dgvHD.Name = "dgvHD";
-            this.dgvHD.RowHeadersWidth = 51;
-            this.dgvHD.RowTemplate.Height = 24;
-            this.dgvHD.Size = new System.Drawing.Size(1218, 332);
-            this.dgvHD.TabIndex = 5;
-            this.dgvHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHD_CellClick);
+            this.labelHoaDonXuatHD.AutoSize = true;
+            this.labelHoaDonXuatHD.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHoaDonXuatHD.Location = new System.Drawing.Point(37, 46);
+            this.labelHoaDonXuatHD.Name = "labelHoaDonXuatHD";
+            this.labelHoaDonXuatHD.Size = new System.Drawing.Size(203, 38);
+            this.labelHoaDonXuatHD.TabIndex = 10;
+            this.labelHoaDonXuatHD.Text = "Hóa Đơn Xuất";
+            // 
+            // labelThongTinHD
+            // 
+            this.labelThongTinHD.AutoSize = true;
+            this.labelThongTinHD.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelThongTinHD.Location = new System.Drawing.Point(16, 14);
+            this.labelThongTinHD.Name = "labelThongTinHD";
+            this.labelThongTinHD.Size = new System.Drawing.Size(116, 31);
+            this.labelThongTinHD.TabIndex = 9;
+            this.labelThongTinHD.Text = "Thông Tin";
+            // 
+            // nhanVienTableAdapter
+            // 
+            this.nhanVienTableAdapter.ClearBeforeFill = true;
+            // 
+            // khachHangTableAdapter
+            // 
+            this.khachHangTableAdapter.ClearBeforeFill = true;
+            // 
+            // nhaCungCapTableAdapter
+            // 
+            this.nhaCungCapTableAdapter.ClearBeforeFill = true;
+            // 
+            // nuocGiaiKhatTableAdapter
+            // 
+            this.nuocGiaiKhatTableAdapter.ClearBeforeFill = true;
+            // 
+            // loaiNGKTableAdapter
+            // 
+            this.loaiNGKTableAdapter.ClearBeforeFill = true;
             // 
             // frmMain
             // 
@@ -2221,13 +2249,13 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHDN)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHDN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
