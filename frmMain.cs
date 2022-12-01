@@ -18,6 +18,8 @@ namespace QLBN
         DataTable tblncc;
         DataTable tblngk;
         DataTable tbllngk;
+        DataTable tblhdn;
+        DataTable tblhd;
         public frmMain()
         {
             InitializeComponent();
@@ -47,6 +49,12 @@ namespace QLBN
             sql = "SELECT * FROM LoaiNGK";
             tbllngk = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dgvLNGK.DataSource = tbllngk; //Nguồn dữ liệu  
+            sql = "SELECT HDN.MaHD, CTHDN.MaNGK, HDN.MaNCC, CTHDN.SoLuong, HDN.NgayNhanHD FROM HoaDonNhap HDN join ChiTietHoaDonNhap CTHDN on HDN.MaHD = CTHDN.MaHD";
+            tblhdn = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvHDN.DataSource = tblhdn; //Nguồn dữ liệu
+            sql = "SELECT HD.MaHD, HD.MaKH, HD.MaNV, CTHD.MaNGK, CTHD.SoLuong, HD.NgayXuatHD FROM HoaDon HD join ChiTietHoaDon CTHD on HD.MaHD = CTHD.MaHD";
+            tblhd = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
+            dgvHD.DataSource = tblhd; //Nguồn dữ liệu  
             //dgvCuaHang.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
             //dgvCuaHang.EditMode = DataGridViewEditMode.EditProgrammatically; //Không cho sửa dữ liệu trực tiếp
             //AAAAAAAAAAAAAAAAAAAAAAA
@@ -103,9 +111,9 @@ namespace QLBN
             txtGioiKH.Text = dgvKH.CurrentRow.Cells["GioiKH"].Value.ToString();
             txtDiachiKH.Text = dgvKH.CurrentRow.Cells["DiaChiKH"].Value.ToString();
             txtSdtKH.Text = dgvKH.CurrentRow.Cells["SdtKH"].Value.ToString();
-            btnCapNhatNV.Enabled = true;
-            btnXoaNV.Enabled = true;
-            btnHuyNV.Enabled = true;
+            btnCapNhatKH.Enabled = true;
+            btnXoaKH.Enabled = true;
+            btnHuyKH.Enabled = true;
         }
         // Nhà Cung Cấp
         private void dgvNCC_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -126,9 +134,9 @@ namespace QLBN
             txtSdtNCC.Text = dgvNCC.CurrentRow.Cells["SdtNCC"].Value.ToString();
             txtDiachiNCC.Text = dgvNCC.CurrentRow.Cells["DiaChiNCC"].Value.ToString();
             dtThoiHanHopDongNCC.Text = dgvNCC.CurrentRow.Cells["ThoiHanHopDongNCC"].Value.ToString();
-            btnCapNhatNV.Enabled = true;
-            btnXoaNV.Enabled = true;
-            btnHuyNV.Enabled = true;
+            btnCapNhatNCC.Enabled = true;
+            btnXoaNCC.Enabled = true;
+            btnHuyNCC.Enabled = true;
         }
         // Mặt Hàng
         private void dgvNGK_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -153,9 +161,9 @@ namespace QLBN
             txtThanhPhanNGK.Text = dgvNGK.CurrentRow.Cells["ThanhPhanNGK"].Value.ToString();
             dtNgaySanXuatNGK.Text = dgvNGK.CurrentRow.Cells["NgaySanXuatNGK"].Value.ToString();
             dtHanSuDungNGK.Text = dgvNGK.CurrentRow.Cells["HanSuDungNGK"].Value.ToString();
-            btnCapNhatNV.Enabled = true;
-            btnXoaNV.Enabled = true;
-            btnHuyNV.Enabled = true;
+            btnCapNhatNGK.Enabled = true;
+            btnXoaNGK.Enabled = true;
+            btnHuyNGK.Enabled = true;
         }
         // Loại Mặt Hàng
         private void dgvLNGK_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -173,9 +181,56 @@ namespace QLBN
             }
             txtMaLoaiNGKLNGK.Text = dgvLNGK.CurrentRow.Cells["MaLoaiNGKLNGK"].Value.ToString();
             txtTenLoaiNGKLNGK.Text = dgvLNGK.CurrentRow.Cells["TenLoaiNGKLNGK"].Value.ToString();
-            btnCapNhatNV.Enabled = true;
-            btnXoaNV.Enabled = true;
-            btnHuyNV.Enabled = true;
+            btnCapNhatLNGK.Enabled = true;
+            btnXoaLNGK.Enabled = true;
+            btnHuyLNGK.Enabled = true;
+        }
+        // Hóa Đơn Nhập
+        private void dgvHDN_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (btnThemHDN.Enabled == false)
+            {
+                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaHDHDN.Focus();
+                return;
+            }
+            if (tblhdn.Rows.Count == 0) //Nếu không có dữ liệu
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMaHDHDN.Text = dgvHDN.CurrentRow.Cells["MaHD"].Value.ToString();
+            txtMaNCCHDN.Text = dgvHDN.CurrentRow.Cells["MaNCC"].Value.ToString();
+            txtMaNGKHDN.Text = dgvHDN.CurrentRow.Cells["MaNGK"].Value.ToString();
+            txtSoLuongHDN.Text = dgvHDN.CurrentRow.Cells["SoLuong"].Value.ToString();
+            dtNgayNhapHDHDN.Text = dgvHDN.CurrentRow.Cells["NgayNhapHD"].Value.ToString();
+            btnCapNhatHDN.Enabled = true;
+            btnXoaHDN.Enabled = true;
+            btnHuyHDN.Enabled = true;
+        }
+        // Hóa Đơn Xuất
+        private void dgvHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (btnThemHD.Enabled == false)
+            {
+                MessageBox.Show("Đang ở chế độ thêm mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaHDHD.Focus();
+                return;
+            }
+            if (tblhd.Rows.Count == 0) //Nếu không có dữ liệu
+            {
+                MessageBox.Show("Không có dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            txtMaHDHD.Text = dgvHD.CurrentRow.Cells["MaHD"].Value.ToString();
+            txtMaKHHD.Text = dgvHD.CurrentRow.Cells["MaKH"].Value.ToString();
+            txtMaNGKHD.Text = dgvHD.CurrentRow.Cells["MaNGK"].Value.ToString();
+            txtMaNVHD.Text = dgvHD.CurrentRow.Cells["MaNV"].Value.ToString();
+            txtSoLuongHD.Text = dgvHD.CurrentRow.Cells["SoLuong"].Value.ToString();
+            dtNgayXuatHDHD.Text = dgvHD.CurrentRow.Cells["NgayXuatHD"].Value.ToString();
+            btnCapNhatHD.Enabled = true;
+            btnXoaHD.Enabled = true;
+            btnHuyHD.Enabled = true;
         }
     }
 }
