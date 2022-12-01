@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
@@ -343,8 +343,8 @@
             // 
             // dgvNV
             // 
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNV.AutoGenerateColumns = false;
             this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNV.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -510,6 +510,7 @@
             this.btnLuuNV.TabIndex = 22;
             this.btnLuuNV.Text = "Lưu";
             this.btnLuuNV.UseVisualStyleBackColor = true;
+            this.btnLuuNV.Click += new System.EventHandler(this.btnLuuNV_Click);
             // 
             // btnCapNhatNV
             // 
@@ -655,6 +656,7 @@
             // 
             // dtNgSinhNV
             // 
+            this.dtNgSinhNV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtNgSinhNV.Location = new System.Drawing.Point(753, 110);
             this.dtNgSinhNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtNgSinhNV.Name = "dtNgSinhNV";
@@ -822,6 +824,7 @@
             this.btnLuuKH.TabIndex = 22;
             this.btnLuuKH.Text = "Lưu";
             this.btnLuuKH.UseVisualStyleBackColor = true;
+            this.btnLuuKH.Click += new System.EventHandler(this.btnLuuKH_Click);
             // 
             // btnCapNhatKH
             // 
@@ -1043,6 +1046,7 @@
             // 
             // dtThoiHanHopDongNCC
             // 
+            this.dtThoiHanHopDongNCC.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtThoiHanHopDongNCC.Location = new System.Drawing.Point(651, 153);
             this.dtThoiHanHopDongNCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtThoiHanHopDongNCC.Name = "dtThoiHanHopDongNCC";
@@ -1091,6 +1095,7 @@
             this.btnLuuNCC.TabIndex = 22;
             this.btnLuuNCC.Text = "Lưu";
             this.btnLuuNCC.UseVisualStyleBackColor = true;
+            this.btnLuuNCC.Click += new System.EventHandler(this.btnLuuNCC_Click);
             // 
             // btnCapNhatNCC
             // 
@@ -1353,6 +1358,7 @@
             // 
             // dtHanSuDungNGK
             // 
+            this.dtHanSuDungNGK.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtHanSuDungNGK.Location = new System.Drawing.Point(753, 153);
             this.dtHanSuDungNGK.Name = "dtHanSuDungNGK";
             this.dtHanSuDungNGK.Size = new System.Drawing.Size(351, 27);
@@ -1400,6 +1406,7 @@
             this.btnLuuNGK.TabIndex = 22;
             this.btnLuuNGK.Text = "Lưu";
             this.btnLuuNGK.UseVisualStyleBackColor = true;
+            this.btnLuuNGK.Click += new System.EventHandler(this.btnLuuNGK_Click);
             // 
             // btnCapNhatNGK
             // 
@@ -1545,6 +1552,7 @@
             // 
             // dtNgaySanXuatNGK
             // 
+            this.dtNgaySanXuatNGK.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtNgaySanXuatNGK.Location = new System.Drawing.Point(753, 110);
             this.dtNgaySanXuatNGK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtNgaySanXuatNGK.Name = "dtNgaySanXuatNGK";
@@ -1681,6 +1689,7 @@
             this.btnLuuLNGK.TabIndex = 22;
             this.btnLuuLNGK.Text = "Lưu";
             this.btnLuuLNGK.UseVisualStyleBackColor = true;
+            this.btnLuuLNGK.Click += new System.EventHandler(this.btnLuuLNGK_Click);
             // 
             // btnCapNhatLNGK
             // 
@@ -1817,6 +1826,7 @@
             // 
             // dtNgayNhapHDHDN
             // 
+            this.dtNgayNhapHDHDN.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtNgayNhapHDHDN.Location = new System.Drawing.Point(673, 155);
             this.dtNgayNhapHDHDN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtNgayNhapHDHDN.Name = "dtNgayNhapHDHDN";
@@ -1926,6 +1936,7 @@
             this.btnLuuHDN.TabIndex = 22;
             this.btnLuuHDN.Text = "Lưu";
             this.btnLuuHDN.UseVisualStyleBackColor = true;
+            this.btnLuuHDN.Click += new System.EventHandler(this.btnLuuHDN_Click);
             // 
             // btnCapNhatHDN
             // 
@@ -2039,6 +2050,7 @@
             // 
             // dtNgayXuatHDHD
             // 
+            this.dtNgayXuatHDHD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtNgayXuatHDHD.Location = new System.Drawing.Point(558, 149);
             this.dtNgayXuatHDHD.Name = "dtNgayXuatHDHD";
             this.dtNgayXuatHDHD.Size = new System.Drawing.Size(351, 27);
@@ -2155,6 +2167,7 @@
             this.btnLuuHD.TabIndex = 22;
             this.btnLuuHD.Text = "Lưu";
             this.btnLuuHD.UseVisualStyleBackColor = true;
+            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
             // 
             // btnCapNhatHD
             // 

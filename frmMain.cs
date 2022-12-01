@@ -576,6 +576,7 @@ namespace QLBN
             txtMaHDHD.Enabled = false;
         }
         //Thêm dữ liệu
+        //Nhân Viên
         private void btnThemNV_Click(object sender, EventArgs e)
         {
             btnCapNhatNV.Enabled = false;
@@ -587,7 +588,7 @@ namespace QLBN
             txtMaNVNV.Enabled = true; //cho phép nhập mới
             txtMaNVNV.Focus();
         }
-
+        //Khách Hàng
         private void btnThemKH_Click(object sender, EventArgs e)
         {
             btnCapNhatKH.Enabled = false;
@@ -599,7 +600,7 @@ namespace QLBN
             txtMaKHKH.Enabled = true; //cho phép nhập mới
             txtMaKHKH.Focus();
         }
-
+        //Nhà Cung Cấp
         private void btnThemNCC_Click(object sender, EventArgs e)
         {
             btnCapNhatNCC.Enabled = false;
@@ -611,7 +612,7 @@ namespace QLBN
             txtMaNCCNCC.Enabled = true; //cho phép nhập mới
             txtMaNCCNCC.Focus();
         }
-
+        //Mặt Hàng
         private void btnThemNGK_Click(object sender, EventArgs e)
         {
             btnCapNhatNGK.Enabled = false;
@@ -623,7 +624,7 @@ namespace QLBN
             txtMaNGKNGK.Enabled = true; //cho phép nhập mới
             txtMaNGKNGK.Focus();
         }
-
+        //Loại Mặt Hàng
         private void btnThemLNGK_Click(object sender, EventArgs e)
         {
             btnCapNhatLNGK.Enabled = false;
@@ -635,7 +636,7 @@ namespace QLBN
             txtMaLoaiNGKLNGK.Enabled = true; //cho phép nhập mới
             txtMaLoaiNGKLNGK.Focus();
         }
-
+        //Hóa Đơn Nhập
         private void btnThemHDN_Click(object sender, EventArgs e)
         {
             btnCapNhatHDN.Enabled = false;
@@ -647,7 +648,7 @@ namespace QLBN
             txtMaHDHDN.Enabled = true; //cho phép nhập mới
             txtMaHDHDN.Focus();
         }
-
+        //Hóa Đơn
         private void btnThemHD_Click(object sender, EventArgs e)
         {
             btnCapNhatHD.Enabled = false;
@@ -658,6 +659,406 @@ namespace QLBN
             ResetValueHoaDon(); //Xoá trắng các textbox
             txtMaHDHD.Enabled = true; //cho phép nhập mới
             txtMaHDHD.Focus();
+        }
+        //Lưu Thay Đổi
+        //Nhân Viên
+        private void btnLuuNV_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaNVNV.Text.Trim().Length == 0) //Nếu chưa nhập mã nhân viên
+            {
+                MessageBox.Show("Bạn phải nhập mã nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNVNV.Focus();
+                return;
+            }
+            if (txtHoTenNV.Text.Trim().Length == 0) //Nếu chưa nhập tên nhân viên
+            {
+                MessageBox.Show("Bạn phải nhập tên nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtHoTenNV.Focus();
+                return;
+            }
+            if (txtGioiNV.Text.Trim().Length == 0) //Nếu chưa nhập giới tính của nhân viên
+            {
+                MessageBox.Show("Bạn phải nhập giới tính của nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGioiNV.Focus();
+                return;
+            }
+            if (txtDiaChiNV.Text.Trim().Length == 0) //Nếu chưa nhập địa chỉ của nhân viên
+            {
+                MessageBox.Show("Bạn phải nhập địa chỉ của nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDiaChiNV.Focus();
+                return;
+            }
+            if (txtSdtNV.Text.Trim().Length == 0) //Nếu chưa nhập số điện thoại của nhân viên
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoai của nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSdtNV.Focus();
+                return;
+            }
+            if (txtLuongNV.Text.Trim().Length == 0) //Nếu chưa nhập lương nhân viên
+            {
+                MessageBox.Show("Bạn phải nhập lương của nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtLuongNV.Focus();
+                return;
+            }
+            sql = "Select MaNV From NhanVien where MaNV=N'" + txtMaNVNV.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã nhân viên này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNVNV.Focus();
+                return;
+            }
+            sql = "INSERT INTO NhanVien VALUES ('" + txtMaNVNV.Text + "','" + txtHoTenNV.Text + "','" + dtNgSinhNV.Text + "','" + txtGioiNV.Text + "','" + txtDiaChiNV.Text + "','" + txtSdtNV.Text + "','" + txtLuongNV.Text + "','" + txtChucVu.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueNhanVien();
+            btnXoaNV.Enabled = true;
+            btnThemNV.Enabled = true;
+            btnCapNhatNV.Enabled = true;
+            btnHuyNV.Enabled = false;
+            btnLuuNV.Enabled = false;
+            txtMaNVNV.Enabled = false;
+        }
+        //Khách Hàng
+        private void btnLuuKH_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaKHKH.Text.Trim().Length == 0) //Nếu chưa nhập mã khách hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaKHKH.Focus();
+                return;
+            }
+            if (txtHotenKH.Text.Trim().Length == 0) //Nếu chưa nhập mã khách hàng
+            {
+                MessageBox.Show("Bạn phải nhập tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtHotenKH.Focus();
+                return;
+            }
+            if (txtGioiKH.Text.Trim().Length == 0) //Nếu chưa nhập giới tính của khách hàng
+            {
+                MessageBox.Show("Bạn phải nhập giới tính của khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGioiKH.Focus();
+                return;
+            }
+            if (txtDiachiKH.Text.Trim().Length == 0) //Nếu chưa nhập địa chỉ của khách hàng
+            {
+                MessageBox.Show("Bạn phải nhập địa chỉ của khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDiachiKH.Focus();
+                return;
+            }
+            if (txtSdtKH.Text.Trim().Length == 0) //Nếu chưa nhập mã khách hàng
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại của khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSdtKH.Focus();
+                return;
+            }
+            sql = "Select MaKH From KhachHang where MaKH=N'" + txtMaKHKH.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã khách hàng này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaKHKH.Focus();
+                return;
+            }
+            sql = "INSERT INTO KhachHang VALUES ('" + txtMaKHKH.Text + "','" + txtHotenKH.Text + "','" + txtGioiKH.Text + "','" + txtDiachiKH.Text + "','" + txtSdtKH.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueKhachHang();
+            btnXoaKH.Enabled = true;
+            btnThemKH.Enabled = true;
+            btnCapNhatKH.Enabled = true;
+            btnHuyKH.Enabled = false;
+            btnLuuKH.Enabled = false;
+            txtMaKHKH.Enabled = false;
+        }
+        //Nhà cung cấp
+        private void btnLuuNCC_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaNCCNCC.Text.Trim().Length == 0) //Nếu chưa nhập mã nhà cung cấp
+            {
+                MessageBox.Show("Bạn phải nhập mã nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNCCNCC.Focus();
+                return;
+            }
+            if (txtTenNCCNCC.Text.Trim().Length == 0) //Nếu chưa nhập tên nhà cung cấp
+            {
+                MessageBox.Show("Bạn phải nhập tên nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenNCCNCC.Focus();
+                return;
+            }
+            if (txtDiachiNCC.Text.Trim().Length == 0) //Nếu chưa nhập địa chỉ của nhà cung cấp
+            {
+                MessageBox.Show("Bạn phải nhập địa chỉ của nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDiachiNCC.Focus();
+                return;
+            }
+            if (txtSdtNCC.Text.Trim().Length == 0) //Nếu chưa nhập số điện thoại nhà cung cấp
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSdtNCC.Focus();
+                return;
+            }
+            sql = "Select MaNCC From NhaCungCap where MaNCC=N'" + txtMaNCCNCC.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã nhà cung cấp này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNCCNCC.Focus();
+                return;
+            }
+            sql = "INSERT INTO NhaCungCap VALUES ('" + txtMaNCCNCC.Text + "','" + txtTenNCCNCC.Text + "','" + txtDiachiNCC.Text + "','" + txtSdtNCC.Text + "','" + dtThoiHanHopDongNCC.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueNhaCungCap();
+            btnXoaNCC.Enabled = true;
+            btnThemNCC.Enabled = true;
+            btnCapNhatNCC.Enabled = true;
+            btnHuyNCC.Enabled = false;
+            btnLuuNCC.Enabled = false;
+            txtMaNCCNCC.Enabled = false;
+        }
+        //Mặt Hàng
+        private void btnLuuNGK_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaNGKNGK.Text.Trim().Length == 0) //Nếu chưa nhập mã mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNGKNGK.Focus();
+                return;
+            }
+            if (txtTenNGKNGK.Text.Trim().Length == 0) //Nếu chưa nhập tên mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập tên mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenNGKNGK.Focus();
+                return;
+            }
+            if (txtGiaNGK.Text.Trim().Length == 0) //Nếu chưa nhập giá mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập giá mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGiaNGK.Focus();
+                return;
+            }
+            if (txtMaLoaiNGKNGK.Text.Trim().Length == 0) //Nếu chưa nhập mã loại mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã loại mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaLoaiNGKNGK.Focus();
+                return;
+            }
+            if (txtMaNCCNGK.Text.Trim().Length == 0) //Nếu chưa nhập mã nhà cung cấp
+            {
+                MessageBox.Show("Bạn phải nhập mã nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNCCNGK.Focus();
+                return;
+            }
+            if (txtThanhPhanNGK.Text.Trim().Length == 0) //Nếu chưa nhập thành phần loại mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập thành phần loại mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtThanhPhanNGK.Focus();
+                return;
+            }
+            if (txtSoLuongNGK.Text.Trim().Length == 0) //Nếu chưa nhập số lượng mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập số lượng mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSoLuongNGK.Focus();
+                return;
+            }
+            sql = "Select MaNGK From NuocGiaiKhat where MaNGK=N'" + txtMaNGKNGK.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã mặt hàng này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNGKNGK.Focus();
+                return;
+            }
+            sql = "Select MaLoaiNGK From LoaiNGK where MaLoaiNGK=N'" + txtMaLoaiNGKNGK.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã loại mặt hàng này không tồn tại, bạn phải nhập mã loại mặt hàng có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaLoaiNGKNGK.Focus();
+                return;
+            }
+            sql = "Select MaNCC From NhaCungCap where MaNCC=N'" + txtMaNCCNGK.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã nhà cung cấp này không tồn tại, bạn phải nhập mã nhà cung cấp có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNCCNGK.Focus();
+                return;
+            }
+            sql = "INSERT INTO NuocGiaiKhat VALUES ('" + txtMaNGKNGK.Text + "','" + txtTenNGKNGK.Text + "','" + txtGiaNGK.Text + "','" + txtMaLoaiNGKNGK.Text + "','" + txtMaNCCNGK.Text + "','" + txtThanhPhanNGK.Text + "','" + dtNgaySanXuatNGK.Text + "','" + dtHanSuDungNGK.Text + "','" + txtSoLuongNGK.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueMatHang();
+            btnXoaNGK.Enabled = true;
+            btnThemNGK.Enabled = true;
+            btnCapNhatNGK.Enabled = true;
+            btnHuyNGK.Enabled = false;
+            btnLuuNGK.Enabled = false;
+            txtMaNGKNGK.Enabled = false;
+        }
+        //Loại Mặt hàng
+        private void btnLuuLNGK_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaLoaiNGKLNGK.Text.Trim().Length == 0) //Nếu chưa nhập mã loại mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã loại mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaLoaiNGKLNGK.Focus();
+                return;
+            }
+            if (txtTenLoaiNGKLNGK.Text.Trim().Length == 0) //Nếu chưa nhập tên loại mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập tên loại mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenLoaiNGKLNGK.Focus();
+                return;
+            }
+            sql = "Select MaLoaiNGK From LoaiNGK where MaLoaiNGK=N'" + txtMaLoaiNGKLNGK.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã loại mặt hàng này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaLoaiNGKLNGK.Focus();
+                return;
+            }
+            sql = "INSERT INTO LoaiNGK VALUES ('" + txtMaLoaiNGKLNGK.Text + "','" + txtTenLoaiNGKLNGK.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueLoaiMatHang();
+            btnXoaLNGK.Enabled = true;
+            btnThemLNGK.Enabled = true;
+            btnCapNhatLNGK.Enabled = true;
+            btnHuyLNGK.Enabled = false;
+            btnLuuLNGK.Enabled = false;
+            txtMaLoaiNGKLNGK.Enabled = false;
+        }
+        //Hóa Đơn Nhập
+        private void btnLuuHDN_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaHDHDN.Text.Trim().Length == 0) //Nếu chưa nhập mã hóa đơn nhập
+            {
+                MessageBox.Show("Bạn phải nhập mã hóa đơn nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaHDHDN.Focus();
+                return;
+            }
+            if (txtMaNGKHDN.Text.Trim().Length == 0) //Nếu chưa nhập mã mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNGKHDN.Focus();
+                return;
+            }
+            if (txtMaNCCHDN.Text.Trim().Length == 0) //Nếu chưa nhập mã nhà cung cấp
+            {
+                MessageBox.Show("Bạn phải nhập mã nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNCCHDN.Focus();
+                return;
+            }
+            if (txtSoLuongHDN.Text.Trim().Length == 0) //Nếu chưa nhập số lượng hàng nhập
+            {
+                MessageBox.Show("Bạn phải nhập số lượng hàng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSoLuongHDN.Focus();
+                return;
+            }
+            sql = "Select MaLoaiNGK From LoaiNGK where MaLoaiNGK=N'" + txtMaHDHDN.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã loại hóa đơn nhập này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaHDHDN.Focus();
+                return;
+            }
+            sql = "Select MaNGK From NuocGiaiKhat where MaNGK=N'" + txtMaNGKHDN.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã mặt hàng này không tồn tại, bạn phải nhập mã mặt hàng có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNGKHDN.Focus();
+                return;
+            }
+            sql = "Select MaNCC From NhaCungCap where MaNCC=N'" + txtMaNCCHDN.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã nhà cung cấp này không tồn tại, bạn phải nhập mã nhà cung cấp có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNCCNGK.Focus();
+                return;
+            }
+            sql = "INSERT INTO HoaDonNhap VALUES ('" + txtMaHDHDN.Text + "','" + txtMaNGKHDN.Text + "','" + dtNgayNhapHDHDN.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            sql = "INSERT INTO ChiTietHoaDonNhap VALUES ('" + txtMaHDHDN.Text + "','" + txtMaNCCHDN.Text + "','" + txtSoLuongHDN.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueHoaDonNhap();
+            btnXoaHDN.Enabled = true;
+            btnThemHDN.Enabled = true;
+            btnCapNhatHDN.Enabled = true;
+            btnHuyHDN.Enabled = false;
+            btnLuuHDN.Enabled = false;
+            txtMaHDHDN.Enabled = false;
+        }
+        //Hóa Đơn Xuất
+        private void btnLuuHD_Click(object sender, EventArgs e)
+        {
+            string sql; //Lưu lệnh sql
+            if (txtMaHDHD.Text.Trim().Length == 0) //Nếu chưa nhập mã hóa đơn xuất
+            {
+                MessageBox.Show("Bạn phải nhập mã hóa đơn xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaHDHD.Focus();
+                return;
+            }
+            if (txtMaNGKHD.Text.Trim().Length == 0) //Nếu chưa nhập mã mặt hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaNGKHD.Focus();
+                return;
+            }
+            if (txtMaKHHD.Text.Trim().Length == 0) //Nếu chưa nhập mã khách hàng
+            {
+                MessageBox.Show("Bạn phải nhập mã khách Hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaKHHD.Focus();
+                return;
+            }
+            if (txtSoLuongHD.Text.Trim().Length == 0) //Nếu chưa nhập số lượng hàng xuất
+            {
+                MessageBox.Show("Bạn phải nhập số lượng hàng xuất", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSoLuongHD.Focus();
+                return;
+            }
+            sql = "Select MaLoaiNGK From LoaiNGK where MaLoaiNGK=N'" + txtMaHDHD.Text.Trim() + "'";
+            if (Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã loại hóa đơn nhập này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaHDHD.Focus();
+                return;
+            }
+            sql = "Select MaNGK From NuocGiaiKhat where MaNGK=N'" + txtMaNGKHD.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã mặt hàng này không tồn tại, bạn phải nhập mã mặt hàng có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNGKHD.Focus();
+                return;
+            }
+            sql = "Select MaKH From KhachHang where MaKH=N'" + txtMaKHHD.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã nhà cung cấp này không tồn tại, bạn phải nhập mã nhà cung cấp có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaKHHD.Focus();
+                return;
+            }
+            sql = "Select MaNV From NhanVien where MaNV=N'" + txtMaNVHD.Text.Trim() + "'";
+            if (!Class.Functions.CheckKey(sql))
+            {
+                MessageBox.Show("Mã nhân viên này không tồn tại, bạn phải nhập mã nhân viên có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaNVHD.Focus();
+                return;
+            }
+            sql = "INSERT INTO HoaDon VALUES ('" + txtMaHDHD.Text + "','" + txtMaKHHD.Text + "','" + txtMaNVHD.Text + "','" + dtNgayNhapHDHDN.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            sql = "INSERT INTO ChiTietHoaDon VALUES ('" + txtMaHDHD.Text + "','" + txtMaNGKHD.Text + "','" + txtSoLuongHD.Text + "')";
+            Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
+            LoadDataGridView(); //Nạp lại DataGridView
+            ResetValueHoaDon();
+            btnXoaHD.Enabled = true;
+            btnThemHD.Enabled = true;
+            btnCapNhatHD.Enabled = true;
+            btnHuyHD.Enabled = false;
+            btnLuuHD.Enabled = false;
+            txtMaHDHD.Enabled = false;
         }
     }
 }
