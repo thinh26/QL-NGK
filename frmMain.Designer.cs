@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
@@ -203,6 +203,7 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.dgvHD = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnThemChiTietHD = new System.Windows.Forms.Button();
             this.txtMaNGKHD = new System.Windows.Forms.TextBox();
             this.txtMaNVHD = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -227,6 +228,7 @@
             this.nhaCungCapTableAdapter = new QLBN.QLBN_DBDataSetTableAdapters.NhaCungCapTableAdapter();
             this.nuocGiaiKhatTableAdapter = new QLBN.QLBN_DBDataSetTableAdapters.NuocGiaiKhatTableAdapter();
             this.loaiNGKTableAdapter = new QLBN.QLBN_DBDataSetTableAdapters.LoaiNGKTableAdapter();
+            this.btnThemChiTietHDN = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -343,8 +345,8 @@
             // 
             // dgvNV
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvNV.AutoGenerateColumns = false;
             this.dgvNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNV.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -521,6 +523,7 @@
             this.btnCapNhatNV.TabIndex = 19;
             this.btnCapNhatNV.Text = "Cập Nhật";
             this.btnCapNhatNV.UseVisualStyleBackColor = true;
+            this.btnCapNhatNV.Click += new System.EventHandler(this.btnCapNhatNV_Click);
             // 
             // labelNgSinhNV
             // 
@@ -835,6 +838,7 @@
             this.btnCapNhatKH.TabIndex = 19;
             this.btnCapNhatKH.Text = "Cập Nhật";
             this.btnCapNhatKH.UseVisualStyleBackColor = true;
+            this.btnCapNhatKH.Click += new System.EventHandler(this.btnCapNhatKH_Click);
             // 
             // labelDiachiKH
             // 
@@ -1106,6 +1110,7 @@
             this.btnCapNhatNCC.TabIndex = 19;
             this.btnCapNhatNCC.Text = "Cập Nhật";
             this.btnCapNhatNCC.UseVisualStyleBackColor = true;
+            this.btnCapNhatNCC.Click += new System.EventHandler(this.btnCapNhatNCC_Click);
             // 
             // labelDiachiNCC
             // 
@@ -1417,6 +1422,7 @@
             this.btnCapNhatNGK.TabIndex = 19;
             this.btnCapNhatNGK.Text = "Cập Nhật";
             this.btnCapNhatNGK.UseVisualStyleBackColor = true;
+            this.btnCapNhatNGK.Click += new System.EventHandler(this.btnCapNhatNGK_Click);
             // 
             // labelNgaySanXuatNGK
             // 
@@ -1700,6 +1706,7 @@
             this.btnCapNhatLNGK.TabIndex = 19;
             this.btnCapNhatLNGK.Text = "Cập Nhật";
             this.btnCapNhatLNGK.UseVisualStyleBackColor = true;
+            this.btnCapNhatLNGK.Click += new System.EventHandler(this.btnCapNhatLNGK_Click);
             // 
             // labelMaLoaiNGKLNGK
             // 
@@ -1783,6 +1790,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnThemChiTietHDN);
             this.panel6.Controls.Add(this.txtSoLuongHDN);
             this.panel6.Controls.Add(this.txtMaNGKHDN);
             this.panel6.Controls.Add(this.dtNgayNhapHDHDN);
@@ -1918,7 +1926,7 @@
             // 
             // btnHuyHDN
             // 
-            this.btnHuyHDN.Location = new System.Drawing.Point(227, 128);
+            this.btnHuyHDN.Location = new System.Drawing.Point(229, 149);
             this.btnHuyHDN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuyHDN.Name = "btnHuyHDN";
             this.btnHuyHDN.Size = new System.Drawing.Size(80, 30);
@@ -1947,6 +1955,7 @@
             this.btnCapNhatHDN.TabIndex = 19;
             this.btnCapNhatHDN.Text = "Cập Nhật";
             this.btnCapNhatHDN.UseVisualStyleBackColor = true;
+            this.btnCapNhatHDN.Click += new System.EventHandler(this.btnCapNhatHDN_Click);
             // 
             // labelHoaDonNhapHDN
             // 
@@ -1996,6 +2005,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.btnThemChiTietHD);
             this.panel7.Controls.Add(this.txtMaNGKHD);
             this.panel7.Controls.Add(this.txtMaNVHD);
             this.panel7.Controls.Add(this.label11);
@@ -2022,6 +2032,17 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1218, 199);
             this.panel7.TabIndex = 4;
+            // 
+            // btnThemChiTietHD
+            // 
+            this.btnThemChiTietHD.Location = new System.Drawing.Point(227, 105);
+            this.btnThemChiTietHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemChiTietHD.Name = "btnThemChiTietHD";
+            this.btnThemChiTietHD.Size = new System.Drawing.Size(80, 30);
+            this.btnThemChiTietHD.TabIndex = 38;
+            this.btnThemChiTietHD.Text = "+CT";
+            this.btnThemChiTietHD.UseVisualStyleBackColor = true;
+            this.btnThemChiTietHD.Click += new System.EventHandler(this.btnThemChiTietHD_Click);
             // 
             // txtMaNGKHD
             // 
@@ -2127,7 +2148,7 @@
             // 
             // btnXoaHD
             // 
-            this.btnXoaHD.Location = new System.Drawing.Point(125, 149);
+            this.btnXoaHD.Location = new System.Drawing.Point(124, 149);
             this.btnXoaHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaHD.Name = "btnXoaHD";
             this.btnXoaHD.Size = new System.Drawing.Size(80, 30);
@@ -2149,7 +2170,7 @@
             // 
             // btnHuyHD
             // 
-            this.btnHuyHD.Location = new System.Drawing.Point(227, 128);
+            this.btnHuyHD.Location = new System.Drawing.Point(227, 149);
             this.btnHuyHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuyHD.Name = "btnHuyHD";
             this.btnHuyHD.Size = new System.Drawing.Size(80, 30);
@@ -2178,6 +2199,7 @@
             this.btnCapNhatHD.TabIndex = 19;
             this.btnCapNhatHD.Text = "Cập Nhật";
             this.btnCapNhatHD.UseVisualStyleBackColor = true;
+            this.btnCapNhatHD.Click += new System.EventHandler(this.btnCapNhatHD_Click);
             // 
             // labelHoaDonXuatHD
             // 
@@ -2218,6 +2240,16 @@
             // loaiNGKTableAdapter
             // 
             this.loaiNGKTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnThemChiTietHDN
+            // 
+            this.btnThemChiTietHDN.Location = new System.Drawing.Point(229, 105);
+            this.btnThemChiTietHDN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemChiTietHDN.Name = "btnThemChiTietHDN";
+            this.btnThemChiTietHDN.Size = new System.Drawing.Size(80, 30);
+            this.btnThemChiTietHDN.TabIndex = 39;
+            this.btnThemChiTietHDN.Text = "+CT";
+            this.btnThemChiTietHDN.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -2473,6 +2505,8 @@
         private System.Windows.Forms.TextBox txtMaHDHD;
         private System.Windows.Forms.TextBox txtSoLuongHD;
         private System.Windows.Forms.DataGridView dgvHD;
+        private System.Windows.Forms.Button btnThemChiTietHD;
+        private System.Windows.Forms.Button btnThemChiTietHDN;
     }
 }
 
