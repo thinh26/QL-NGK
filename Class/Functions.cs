@@ -17,7 +17,7 @@ namespace QLBN.Class
         public static void Connect()
         {
             Con = new SqlConnection();   //Khởi tạo đối tượng
-            Con.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=" + Application.StartupPath + @"\QLBN_DB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+            Con.ConnectionString = @"Data Source=DESKTOP-9DG1GEJ;Initial Catalog=D:\QL-NGK\QLBN_DB.MDF;Integrated Security=True";
             Con.Open();                  //Mở kết nối
             //Kiểm tra kết nối
             if (Con.State == ConnectionState.Open)

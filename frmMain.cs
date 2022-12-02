@@ -50,10 +50,10 @@ namespace QLBN
             sql = "SELECT * FROM LoaiNGK";
             tbllngk = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dgvLNGK.DataSource = tbllngk; //Nguồn dữ liệu  
-            sql = "SELECT HDN.MaHD, CTHDN.MaNGK, HDN.MaNCC, CTHDN.SoLuong, HDN.NgayNhanHD FROM HoaDonNhap HDN join ChiTietHoaDonNhap CTHDN on HDN.MaHD = CTHDN.MaHD";
+            sql = "SELECT HDN.MaHD, CTHDN.MaNGK, HDN.MaNCC, CTHDN.SoLuong, CTHDN.ThanhTien, HDN.NgayNhanHD FROM HoaDonNhap HDN join ChiTietHoaDonNhap CTHDN on HDN.MaHD = CTHDN.MaHD";
             tblhdn = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dgvHDN.DataSource = tblhdn; //Nguồn dữ liệu
-            sql = "SELECT HD.MaHD, HD.MaKH, HD.MaNV, CTHD.MaNGK, CTHD.SoLuong, HD.NgayXuatHD FROM HoaDon HD join ChiTietHoaDon CTHD on HD.MaHD = CTHD.MaHD";
+            sql = "SELECT HD.MaHD, HD.MaKH, HD.MaNV, NGK.TenNGK, CTHD.SoLuong,NGK.Gia * CTHD.SoLuong as ThanhTien, HD.NgayXuatHD FROM HoaDon HD join ChiTietHoaDon CTHD on HD.MaHD = CTHD.MaHD join NuocGiaiKhat NGK on CTHD.MaNGK = NGK.MaNGK";
             tblhd = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dgvHD.DataSource = tblhd; //Nguồn dữ liệu  
             dgvNV.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
@@ -81,6 +81,7 @@ namespace QLBN
             txtMaLoaiNGKLNGK.Enabled = false;
             txtMaHDHDN.Enabled = false;
             txtMaHDHD.Enabled = false;
+            txtMaNGKHD.Enabled = false;
             btnLuuNV.Enabled = false;
             btnHuyNV.Enabled = false;
             btnLuuKH.Enabled = false;
@@ -242,7 +243,8 @@ namespace QLBN
             txtMaNCCHDN.Text = dgvHDN.CurrentRow.Cells["MaNCC"].Value.ToString();
             txtMaNGKHDN.Text = dgvHDN.CurrentRow.Cells["MaNGK"].Value.ToString();
             txtSoLuongHDN.Text = dgvHDN.CurrentRow.Cells["SoLuong"].Value.ToString();
-            dtNgayNhapHDHDN.Text = dgvHDN.CurrentRow.Cells["NgayNhapHD"].Value.ToString();
+            txtThanhTienHDN.Text = dgvHDN.CurrentRow.Cells["ThanhTien"].Value.ToString();
+            dtNgayNhapHDHDN.Text = dgvHDN.CurrentRow.Cells["NgayNhanHD"].Value.ToString();
             btnCapNhatHDN.Enabled = true;
             btnXoaHDN.Enabled = true;
             btnHuyHDN.Enabled = true;
@@ -263,10 +265,11 @@ namespace QLBN
             }
             txtMaHDHD.Text = dgvHD.CurrentRow.Cells["MaHD"].Value.ToString();
             txtMaKHHD.Text = dgvHD.CurrentRow.Cells["MaKH"].Value.ToString();
-            txtMaNGKHD.Text = dgvHD.CurrentRow.Cells["MaNGK"].Value.ToString();
+            txtTenNGKHD.Text = dgvHD.CurrentRow.Cells["TenNGK"].Value.ToString();
             txtMaNVHD.Text = dgvHD.CurrentRow.Cells["MaNV"].Value.ToString();
             txtSoLuongHD.Text = dgvHD.CurrentRow.Cells["SoLuong"].Value.ToString();
             dtNgayXuatHDHD.Text = dgvHD.CurrentRow.Cells["NgayXuatHD"].Value.ToString();
+
             btnCapNhatHD.Enabled = true;
             btnXoaHD.Enabled = true;
             btnHuyHD.Enabled = true;
@@ -328,6 +331,7 @@ namespace QLBN
             txtMaNCCHDN.Text = "";
             txtSoLuongHDN.Text = "";
             txtMaNGKHDN.Text = "";
+            txtThanhTienHDN.Text = "";
             dtNgayNhapHDHDN.Text = "";
         }
         //Hóa Đơn Xuất
@@ -338,6 +342,7 @@ namespace QLBN
             txtMaNVHD.Text = "";
             txtSoLuongHD.Text = "";
             txtMaNGKHD.Text = "";
+            txtTenNGKHD.Text = "";
             dtNgayXuatHDHD.Text = "";
         }
         //Xóa Dữ Liệu
@@ -674,6 +679,8 @@ namespace QLBN
             btnThemHD.Enabled = false;
             ResetValueHoaDon(); //Xoá trắng các textbox
             txtMaHDHD.Enabled = true; //cho phép nhập mới
+            txtMaNGKHD.Enabled = true;
+            txtTenNGKHD.Enabled = false;
             txtMaHDHD.Focus();
         }
         //Lưu Thay Đổi
@@ -996,7 +1003,7 @@ namespace QLBN
             }
             sql = "INSERT INTO HoaDonNhap VALUES ('" + txtMaHDHDN.Text + "','" + txtMaNGKHDN.Text + "','" + dtNgayNhapHDHDN.Text + "')";
             Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
-            sql = "INSERT INTO ChiTietHoaDonNhap VALUES ('" + txtMaHDHDN.Text + "','" + txtMaNCCHDN.Text + "','" + txtSoLuongHDN.Text + "')";
+            sql = "INSERT INTO ChiTietHoaDonNhap VALUES ('" + txtMaHDHDN.Text + "','" + txtMaNCCHDN.Text + "','" + txtSoLuongHDN.Text + "', '" + txtThanhTienHDN + "')";
             Class.Functions.RunSQL(sql); //Thực hiện câu lệnh sql
             LoadDataGridView(); //Nạp lại DataGridView
             ResetValueHoaDonNhap();
@@ -1052,7 +1059,7 @@ namespace QLBN
             sql = "Select MaKH From KhachHang where MaKH=N'" + txtMaKHHD.Text.Trim() + "'";
             if (!Class.Functions.CheckKey(sql))
             {
-                MessageBox.Show("Mã nhà cung cấp này không tồn tại, bạn phải nhập mã nhà cung cấp có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã khách hàng này không tồn tại, bạn phải nhập mã khách hàng có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaKHHD.Focus();
                 return;
             }
@@ -1076,6 +1083,7 @@ namespace QLBN
             btnLuuHD.Enabled = false;
             btnThemChiTietHDN.Enabled = false;
             txtMaHDHD.Enabled = false;
+            txtMaNGKHD.Enabled = false;
         }
         //Thêm chi tiết Hóa Đơn Xuất
         private void btnThemChiTietHD_Click(object sender, EventArgs e)
