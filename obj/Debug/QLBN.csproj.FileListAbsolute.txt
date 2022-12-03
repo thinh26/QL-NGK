@@ -56,3 +56,4 @@ D:\QL-NGK\obj\Debug\QLBN.csproj.GenerateResource.cache
 D:\QL-NGK\obj\Debug\QLBN.csproj.CoreCompileInputs.cache
 D:\QL-NGK\obj\Debug\QLBN.exe
 D:\QL-NGK\obj\Debug\QLBN.pdb
+D:\QL-NGK\obj\Debug\QLBN.csproj.ResolveComReference.cache

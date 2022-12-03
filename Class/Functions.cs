@@ -93,5 +93,6 @@ namespace QLBN.Class
             cmd.Dispose();
             cmd = null;
         }
+        
     }
 }
