@@ -48,8 +48,6 @@ D:\QL-NGK\bin\Debug\QLBN.exe
 D:\QL-NGK\bin\Debug\QLBN.pdb
 D:\QL-NGK\obj\Debug\QLBN.csproj.AssemblyReference.cache
 D:\QL-NGK\obj\Debug\QLBN.csproj.SuggestedBindingRedirects.cache
-D:\QL-NGK\obj\Debug\QLBN.frmDMKhuVuc.resources
-D:\QL-NGK\obj\Debug\QLBN.frmDMNhanVien.resources
 D:\QL-NGK\obj\Debug\QLBN.frmMain.resources
 D:\QL-NGK\obj\Debug\QLBN.Properties.Resources.resources
 D:\QL-NGK\obj\Debug\QLBN.csproj.GenerateResource.cache

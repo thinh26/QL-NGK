@@ -55,7 +55,7 @@ namespace QLBN
             sql = "SELECT HDN.MaHD, CTHDN.MaNGK, HDN.MaNCC, CTHDN.SoLuong, CTHDN.ThanhTien, HDN.NgayNhanHD FROM HoaDonNhap HDN join ChiTietHoaDonNhap CTHDN on HDN.MaHD = CTHDN.MaHD";
             tblhdn = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dgvHDN.DataSource = tblhdn; //Nguồn dữ liệu
-            sql = "SELECT HD.MaHD, HD.MaKH, HD.MaNV, NGK.TenNGK, CTHD.SoLuong,NGK.Gia * CTHD.SoLuong as ThanhTien, HD.NgayXuatHD FROM HoaDon HD join ChiTietHoaDon CTHD on HD.MaHD = CTHD.MaHD join NuocGiaiKhat NGK on CTHD.MaNGK = NGK.MaNGK";
+            sql = "SELECT HD.MaHD, HD.MaKH, HD.MaNV,CTHD.MaNGK, NGK.TenNGK, CTHD.SoLuong,NGK.Gia * CTHD.SoLuong as ThanhTien, HD.NgayXuatHD FROM HoaDon HD join ChiTietHoaDon CTHD on HD.MaHD = CTHD.MaHD join NuocGiaiKhat NGK on CTHD.MaNGK = NGK.MaNGK";
             tblhd = Functions.GetDataToTable(sql); //Đọc dữ liệu từ bảng
             dgvHD.DataSource = tblhd; //Nguồn dữ liệu  
             dgvNV.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
@@ -83,7 +83,6 @@ namespace QLBN
             txtMaLoaiNGKLNGK.Enabled = false;
             txtMaHDHDN.Enabled = false;
             txtMaHDHD.Enabled = false;
-            txtMaNGKHD.Enabled = false;
             btnLuuNV.Enabled = false;
             btnHuyNV.Enabled = false;
             btnLuuKH.Enabled = false;
@@ -267,6 +266,7 @@ namespace QLBN
             }
             txtMaHDHD.Text = dgvHD.CurrentRow.Cells["MaHD"].Value.ToString();
             txtMaKHHD.Text = dgvHD.CurrentRow.Cells["MaKH"].Value.ToString();
+            txtMaNGKHD.Text = dgvHD.CurrentRow.Cells["MaNGK"].Value.ToString();
             txtTenNGKHD.Text = dgvHD.CurrentRow.Cells["TenNGK"].Value.ToString();
             txtMaNVHD.Text = dgvHD.CurrentRow.Cells["MaNV"].Value.ToString();
             txtSoLuongHD.Text = dgvHD.CurrentRow.Cells["SoLuong"].Value.ToString();
@@ -1335,7 +1335,7 @@ namespace QLBN
                     "',NgaySanXuat='" + dtNgaySanXuatNGK.Text.ToString() +
                     "',HanSuDung='" + dtHanSuDungNGK.Text.ToString() +
                     "',SoLuong='" + txtSoLuongNGK.Text.ToString() +
-                    "' WHERE MaNGK='" + txtMaNGKNGK.Text + "'";
+                    "' WHERE MaNGK='" + txtMaNGKNGK.Text.ToString() + "'";
             Class.Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValueMatHang();
@@ -1357,7 +1357,7 @@ namespace QLBN
                 return;
             }
             sql = "UPDATE LoaiNGK SET TenLoaiNGK='" + txtTenLoaiNGKLNGK.Text.ToString() +
-                    "' WHERE MaLoaiNGK='" + txtMaLoaiNGKLNGK.Text + "'";
+                    "' WHERE MaLoaiNGK='" + txtMaLoaiNGKLNGK.Text.ToString() + "'";
             Class.Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValueLoaiMatHang();
@@ -1376,12 +1376,6 @@ namespace QLBN
                 MessageBox.Show("Không còn dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (txtMaNGKHD.Text.Trim().Length == 0) //Nếu chưa nhập mã mặt hàng
-            {
-                MessageBox.Show("Bạn phải nhập mã mặt hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtMaNGKHD.Focus();
-                return;
-            }
             if (txtMaKHHD.Text.Trim().Length == 0) //Nếu chưa nhập mã khách hàng
             {
                 MessageBox.Show("Bạn phải nhập mã khách Hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1394,13 +1388,7 @@ namespace QLBN
                 txtSoLuongHD.Focus();
                 return;
             }
-            sql = "Select MaNGK From NuocGiaiKhat where MaNGK=N'" + txtMaNGKHD.Text.Trim() + "'";
-            if (!Class.Functions.CheckKey(sql))
-            {
-                MessageBox.Show("Mã mặt hàng này không tồn tại, bạn phải nhập mã mặt hàng có tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMaNGKHD.Focus();
-                return;
-            }
+            
             sql = "Select MaKH From KhachHang where MaKH=N'" + txtMaKHHD.Text.Trim() + "'";
             if (!Class.Functions.CheckKey(sql))
             {
@@ -1422,7 +1410,7 @@ namespace QLBN
             Class.Functions.RunSQL(sql);
             sql = "UPDATE ChiTietHoaDon SET MaNGK='" + txtMaNGKHD.Text.ToString() +
                     "',SoLuong='" + txtSoLuongHD.Text.ToString() +
-                    "' WHERE MaNGK='" + txtMaNGKHD.Text + "' and MaHD='" + txtMaHDHD.Text + "'";
+                    "' WHERE MaHD='" + txtMaHDHD.Text + "'";
             Class.Functions.RunSQL(sql);
             LoadDataGridView();
             ResetValueHoaDon();
@@ -1628,6 +1616,15 @@ namespace QLBN
                     if (cot == 4) exSheet.Cells[cot + 3][hang + 13] = tblThongtinHang.Rows[hang][cot].ToString() + "%";
                 }
             }
+            //Tổng tiền
+            exRange = exSheet.Cells[cot + 1][hang + 14];
+            exRange.Font.Bold = true;
+            exRange.Value2 = "Tổng tiền:";
+            DataTable tblTongTien;
+            sql = "SELECT sum(NGK.Gia * CTHD.SoLuong) as TongTien FROM HoaDon HD join ChiTietHoaDon CTHD on HD.MaHD = CTHD.MaHD join NuocGiaiKhat NGK on CTHD.MaNGK = NGK.MaNGK where HD.MAHD = '" + txtMaHDHD.Text + "'";
+            tblTongTien = Functions.GetDataToTable(sql);
+            exRange = exSheet.Cells[cot + 2][hang + 14];
+            exRange.Value2 = tblTongTien.Rows[0][0].ToString();
             //In ngày xuất hoá đơn
             DataTable tblNgayXuatHD;
             sql = "SELECT NgayNhanHD from HoaDonNhap where MaHD = '" + txtMaHDHDN.Text + "'";
@@ -1641,9 +1638,6 @@ namespace QLBN
             exRange.Range["B2:C2"].MergeCells = true;
             exRange.Range["B2:C2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["B2:C2"].Value = "Người nhập hàng";
-            DataTable tblTenNguoiBanHang;
-            sql = "select NV.HoTen from HoaDon HD join NhanVien NV on HD.MaNV = NV.MaNV where HD.MaHD = '" + txtMaHDHD.Text + "' and HD.MaNV = '" + txtMaNVHD.Text + "'";
-            tblTenNguoiBanHang = Functions.GetDataToTable(sql);
             exRange.Range["B6:C6"].MergeCells = true;
             exRange.Range["B6:C6"].Font.Bold = true;
             exRange.Range["B6:C6"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;

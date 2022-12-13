@@ -64,18 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Functions.cs" />
-    <Compile Include="frmDMKhuVuc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDMKhuVuc.Designer.cs">
-      <DependentUpon>frmDMKhuVuc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDMNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDMNhanVien.Designer.cs">
-      <DependentUpon>frmDMNhanVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,12 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBN_DBDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmDMKhuVuc.resx">
-      <DependentUpon>frmDMKhuVuc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDMNhanVien.resx">
-      <DependentUpon>frmDMNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
